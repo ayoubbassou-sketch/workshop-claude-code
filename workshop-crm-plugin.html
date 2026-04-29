@@ -271,15 +271,7 @@ https://github.com/ayoubbassou-sketch/workshop-claude-code</pre>
 It parses a contacts CSV, auto-detects columns (email, firstname,
 lastname, phone, company — support French and English aliases),
 maps them to Brevo fields (email, FIRSTNAME, LASTNAME, SMS,
-WHATSAPP, COMPANY), and batch-imports 500 contacts per call
-to POST /v3/contacts/import.
-
-- Use jsonBody (not contacts) as the wrapping field
-- Attribute names must be UPPERCASE
-- SMS/WHATSAPP must include country code
-- Create a dated list for the import batch
-- Retrieve Brevo IDs after import
-- Read CSV path from import-context.json, write results back</pre>
+WHATSAPP, COMPANY), and batch-imports 500 contacts per call</pre>
             <button class="copy-btn" onclick="copy(this, 'p2')">Copy</button>
           </div>
           <div class="files-produced">
@@ -299,19 +291,7 @@ to POST /v3/contacts/import.
           <p class="step-desc">Activates ecommerce, extracts categories from the CSV, and batch-imports products (max 100/batch) via <code style="color:#4ade80">POST /v3/products/batch</code>.</p>
           <div class="prompt-label">Prompt</div>
           <div class="prompt-wrapper">
-            <pre id="p3">Create a skill import-products for the CRM-setup-expert plugin.
-
-It parses a products CSV, detects delimiter automatically (comma or
-semicolon), extracts unique categories, activates ecommerce via
-POST /v3/ecommerce/activate, batch-imports categories then products
-(max 100/batch) using updateEnabled: true.
-
-Required fields: id (auto-generate P001 if missing), name.
-Optional: price, category, description, imageUrl, url, brand, stock.
-Support common column aliases (title/nom for name, prix for price, etc.)
-
-Read CSV path from import-context.json, write created categories
-and products back.</pre>
+            <pre id="p3"></pre>
             <button class="copy-btn" onclick="copy(this, 'p3')">Copy</button>
           </div>
           <div class="files-produced">
@@ -331,20 +311,7 @@ and products back.</pre>
           <p class="step-desc">Handles normalized and denormalized CSV formats (multiple rows per order), groups by order ID, and batch-imports via <code style="color:#4ade80">POST /v3/orders/status/batch</code>.</p>
           <div class="prompt-label">Prompt</div>
           <div class="prompt-wrapper">
-            <pre id="p4">Create a skill import-orders for the CRM-setup-expert plugin.
-
-It parses an orders CSV and handles both normalized (one row per order)
-and denormalized (multiple rows per order_id, one per product) formats.
-Groups rows by order_id into order objects with a products array.
-
-Import to POST /v3/orders/status/batch, max 1000 orders per batch.
-Dates must be UTC ISO-8601: YYYY-MM-DDTHH:mm:ss.SSSZ — parse common
-formats (YYYY-MM-DD, DD/MM/YYYY, etc.).
-
-Required fields: id, email, amount.
-Optional: product_id, quantity, price, status, created_at.
-
-Read CSV path from import-context.json, write created orders back.</pre>
+            <pre id="p4"></pre>
             <button class="copy-btn" onclick="copy(this, 'p4')">Copy</button>
           </div>
           <div class="files-produced">
@@ -364,24 +331,7 @@ Read CSV path from import-context.json, write created orders back.</pre>
           <p class="step-desc">The agent ties everything together — interactive setup, mapping confirmation, autonomous import execution, and a final summary report.</p>
           <div class="prompt-label">Prompt</div>
           <div class="prompt-wrapper">
-            <pre id="p5">Create an agent CRM-setup-expert that orchestrates the import-contacts,
-import-products, and import-orders skills.
-
-Workflow:
-1. Ask for Brevo API key, store in /tmp/.brevo_key (chmod 600),
-   validate via GET /v3/account, never display the key
-2. Ask which data to import (contacts / products / orders),
-   collect CSV file paths, verify files exist
-3. For each CSV, show first 3 rows + detected column mapping,
-   ask user to confirm or adjust
-4. Show final import plan (row counts per type), wait for confirmation
-5. Execute autonomously: products → contacts → orders
-6. Print summary: expected vs actual counts, any errors
-7. Clean up /tmp/.brevo_key and /tmp/.import_*.json
-
-Use model: opus. Tools: Read, Write, Edit, Bash, Glob.
-Use import-context.json as the shared state between skills.
-Write all curl payloads to /tmp files — never inline JSON >1KB in curl -d.</pre>
+            <pre id="p5"></pre>
             <button class="copy-btn" onclick="copy(this, 'p5')">Copy</button>
           </div>
           <div class="files-produced">

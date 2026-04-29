@@ -240,7 +240,7 @@
           <span class="step-tag tag-plugin">Plugin</span>
         </div>
         <div class="step-body">
-          <p class="step-desc">Scaffolds the plugin folder and <code style="color:#60a5fa">plugin.json</code> metadata. This is the container for all skills and the agent.</p>
+          <p class="step-desc">Scaffolds the plugin folder and plugin.json metadata. This is the container for all skills and the agent.</p>
           <div class="prompt-label">Prompt</div>
           <div class="prompt-wrapper">
             <pre id="p1">Create a new Claude Code plugin called CRM-setup-expert_(yourname).
@@ -263,7 +263,7 @@ https://github.com/ayoubbassou-sketch/workshop-claude-code</pre>
           <span class="step-tag tag-skill">Skill</span>
         </div>
         <div class="step-body">
-          <p class="step-desc">Handles CSV parsing, column detection (FR + EN aliases), and batched contact import via <code style="color:#4ade80">POST /v3/contacts/import</code>.</p>
+          <p class="step-desc">Handles CSV parsing, column detection (FR + EN aliases), and batched contact import into Brevo.</p>
           <div class="prompt-label">Prompt</div>
           <div class="prompt-wrapper">
             <pre id="p2">Create a skill import-contacts for the CRM-setup-expert plugin.
@@ -288,7 +288,7 @@ WHATSAPP, COMPANY), and batch-imports 500 contacts per call</pre>
           <span class="step-tag tag-skill">Skill</span>
         </div>
         <div class="step-body">
-          <p class="step-desc">Activates ecommerce, extracts categories from the CSV, and batch-imports products (max 100/batch) via <code style="color:#4ade80">POST /v3/products/batch</code>.</p>
+          <p class="step-desc">Activates ecommerce, extracts categories from the CSV, and batch-imports products into Brevo.</p>
           <div class="prompt-label">Prompt</div>
           <div class="prompt-wrapper">
             <pre id="p3"></pre>
@@ -308,7 +308,7 @@ WHATSAPP, COMPANY), and batch-imports 500 contacts per call</pre>
           <span class="step-tag tag-skill">Skill</span>
         </div>
         <div class="step-body">
-          <p class="step-desc">Handles normalized and denormalized CSV formats (multiple rows per order), groups by order ID, and batch-imports via <code style="color:#4ade80">POST /v3/orders/status/batch</code>.</p>
+          <p class="step-desc">Handles normalized and denormalized CSV formats (multiple rows per order), groups by order ID, and batch-imports into Brevo.</p>
           <div class="prompt-label">Prompt</div>
           <div class="prompt-wrapper">
             <pre id="p4"></pre>
